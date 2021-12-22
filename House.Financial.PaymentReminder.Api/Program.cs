@@ -1,20 +1,14 @@
 using House.Financial.PaymentReminder.Api;
+using House.Financial.PaymentReminder.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services
-    .InjectHandler()
-    .InjectRepositories()
-    .AddScoped<ResponseFilter>()
-    .AddControllersWithViews(options => 
-    {
-        options.Filters.Add(new ResponseFilter());
-    });
-
+    .InjectApplicationDependencies()
+    .InjectRepositories();
 
 var app = builder.Build();
 
-new ConfigureRoutes(app).InitializeComponents();
+new PaymentController(app).InitializeRoutes();
 
-app.MapControllers();
 app.Run();
