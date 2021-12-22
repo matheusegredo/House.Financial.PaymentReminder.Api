@@ -5,14 +5,16 @@ VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "House.Financial.PaymentReminder.Api", "House.Financial.PaymentReminder.Api\House.Financial.PaymentReminder.Api.csproj", "{D358CB70-0419-4C12-9479-3DAD4F20B5DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "House.Financial.PaymentReminder.Application", "House.Financial.PaymentReminder.Application\House.Financial.PaymentReminder.Application.csproj", "{BB99980E-50E3-4E06-BB22-981B8BFB3276}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "House.Financial.PaymentReminder.Application", "House.Financial.PaymentReminder.Application\House.Financial.PaymentReminder.Application.csproj", "{BB99980E-50E3-4E06-BB22-981B8BFB3276}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "House.Financial.PaymentReminder.Data", "House.Financial.PaymentReminder.Data\House.Financial.PaymentReminder.Data.csproj", "{4A1393FB-37C6-4A9C-9539-55C476007A50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "House.Financial.PaymentReminder.Data", "House.Financial.PaymentReminder.Data\House.Financial.PaymentReminder.Data.csproj", "{4A1393FB-37C6-4A9C-9539-55C476007A50}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A9D8B4AD-BB77-4846-8D29-4B5344034093}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "House.Financial.PaymentReminder.Exceptions", "House.Financial.PaymentReminder.Exceptions\House.Financial.PaymentReminder.Exceptions.csproj", "{90036F81-CA36-4E7A-B29B-4D912D45332E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +34,10 @@ Global
 		{4A1393FB-37C6-4A9C-9539-55C476007A50}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A1393FB-37C6-4A9C-9539-55C476007A50}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A1393FB-37C6-4A9C-9539-55C476007A50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90036F81-CA36-4E7A-B29B-4D912D45332E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90036F81-CA36-4E7A-B29B-4D912D45332E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90036F81-CA36-4E7A-B29B-4D912D45332E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90036F81-CA36-4E7A-B29B-4D912D45332E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
