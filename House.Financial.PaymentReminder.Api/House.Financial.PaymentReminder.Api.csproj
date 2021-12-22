@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\House.Financial.PaymentReminder.Application\House.Financial.PaymentReminder.Application.csproj" />
     <ProjectReference Include="..\House.Financial.PaymentReminder.Data\House.Financial.PaymentReminder.Data.csproj" />
+    <ProjectReference Include="..\House.Financial.PaymentReminder.Exceptions\House.Financial.PaymentReminder.Exceptions.csproj" />
   </ItemGroup>
 
 </Project>

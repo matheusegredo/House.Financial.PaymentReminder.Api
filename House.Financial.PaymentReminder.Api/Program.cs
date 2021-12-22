@@ -1,20 +1,20 @@
-using House.Financial.PaymentReminder.Application.Commands;
-using House.Financial.PaymentReminder.Application.Interfaces;
-using House.Financial.PaymentReminder.Data.Interfaces;
-using House.Financial.PaymentReminder.Data.Repository;
+using House.Financial.PaymentReminder.Api;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services
-.AddScoped<IPostPaymentReminderCommandHandler, PostPaymentReminderCommandHandler>()
-.AddScoped<IGetPaymentReminderQueryHandler, GetPaymentReminderQueryHandler>()
-.AddScoped<IPaymentRepository>(p => new PaymentRepository("Payments"));
+    .InjectHandler()
+    .InjectRepositories()
+    .AddScoped<ResponseFilter>()
+    .AddControllersWithViews(options => 
+    {
+        options.Filters.Add(new ResponseFilter());
+    });
+
 
 var app = builder.Build();
 
-app.MapGet("/", (IGetPaymentReminderQueryHandler handler) => handler.Get());
-app.MapGet("/{id}", (int id, IGetPaymentReminderQueryHandler handler) => handler.Get(id));
+new ConfigureRoutes(app).InitializeComponents();
 
-app.MapPost("/", (PostPaymentReminderCommand command, IPostPaymentReminderCommandHandler handler) => handler.Post(command));
-
+app.MapControllers();
 app.Run();
