@@ -8,3 +8,6 @@ dotnet_diagnostic.CS8604.severity = none
 
 # CS8603: Possível retorno de referência nula.
 dotnet_diagnostic.CS8603.severity = silent
+
+# CS8714: O tipo não pode ser usado como parâmetro de tipo no tipo ou método genérico. A nulidade do argumento de tipo não corresponde à restrição 'notnull'.
+dotnet_diagnostic.CS8714.severity = none

@@ -14,7 +14,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "House.Financial.PaymentReminder.Exceptions", "House.Financial.PaymentReminder.Exceptions\House.Financial.PaymentReminder.Exceptions.csproj", "{90036F81-CA36-4E7A-B29B-4D912D45332E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "House.Financial.PaymentReminder.Exceptions", "House.Financial.PaymentReminder.Exceptions\House.Financial.PaymentReminder.Exceptions.csproj", "{90036F81-CA36-4E7A-B29B-4D912D45332E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2B3D8806-98A7-46D4-88FD-C1D067A8C9C0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{C72C7F48-7AB0-4678-985B-CA1BAA111CCC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "House.Financial.PaymentReminder.Application.Test", "House.Financial.PaymentReminder.Test\House.Financial.PaymentReminder.Application.Test.csproj", "{E18114F3-1F24-4963-BAC2-07D6EE24DA7D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,9 +44,20 @@ Global
 		{90036F81-CA36-4E7A-B29B-4D912D45332E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90036F81-CA36-4E7A-B29B-4D912D45332E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90036F81-CA36-4E7A-B29B-4D912D45332E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E18114F3-1F24-4963-BAC2-07D6EE24DA7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E18114F3-1F24-4963-BAC2-07D6EE24DA7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E18114F3-1F24-4963-BAC2-07D6EE24DA7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E18114F3-1F24-4963-BAC2-07D6EE24DA7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D358CB70-0419-4C12-9479-3DAD4F20B5DF} = {2B3D8806-98A7-46D4-88FD-C1D067A8C9C0}
+		{BB99980E-50E3-4E06-BB22-981B8BFB3276} = {2B3D8806-98A7-46D4-88FD-C1D067A8C9C0}
+		{4A1393FB-37C6-4A9C-9539-55C476007A50} = {2B3D8806-98A7-46D4-88FD-C1D067A8C9C0}
+		{90036F81-CA36-4E7A-B29B-4D912D45332E} = {2B3D8806-98A7-46D4-88FD-C1D067A8C9C0}
+		{E18114F3-1F24-4963-BAC2-07D6EE24DA7D} = {C72C7F48-7AB0-4678-985B-CA1BAA111CCC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A3528F15-384C-4E45-AAA5-1970C29E8F7D}
