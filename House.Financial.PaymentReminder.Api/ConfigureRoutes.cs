@@ -1,5 +1,6 @@
 ﻿using House.Financial.PaymentReminder.Application;
 using House.Financial.PaymentReminder.Application.Commands;
+using House.Financial.PaymentReminder.Application.Commands.Put;
 using House.Financial.PaymentReminder.Application.Queries;
 using House.Financial.PaymentReminder.Exceptions;
 using MediatR;
@@ -25,11 +26,11 @@ namespace House.Financial.PaymentReminder.Api
 
         public void Get() => _app.MapGet("/", async (HttpContext context, IMediator mediator) => await ResponseHandler(context, () => mediator.Send(new GetPaymentReminderQuery())));
 
-        public void GetById() => _app.MapGet("/{id}", (int id, IMediator mediator) => mediator.Send(new GetPaymentReminderQuery()));
+        public void GetById() => _app.MapGet("/{id}", async (HttpContext context, int id, IMediator mediator) => await ResponseHandler(context, () => mediator.Send(new GetPaymentReminderQuery())));
 
-        public void Post() => _app.MapPost("/", (PostPaymentReminderCommand command, IMediator mediator) => mediator.Send(command));
+        public void Post() => _app.MapPost("/", async (HttpContext context, PostPaymentReminderCommand command, IMediator mediator) => await ResponseHandler(context, () => mediator.Send(command)));
 
-        public void Put() => _app.MapPut("/", (PostPaymentReminderCommand command, IMediator mediator) => mediator.Send(command));
+        public void Put() => _app.MapPut("/", async (HttpContext context, PutPaymentReminderCommand command, IMediator mediator) => await ResponseHandler(context, () => mediator.Send(command)));
 
         private static async Task<IResult> ResponseHandler<TDataObject>(HttpContext context, Func<Task<TDataObject>> func) 
         {
@@ -44,7 +45,8 @@ namespace House.Financial.PaymentReminder.Api
                 return ex switch
                 {
                     InvalidRequestException invalid => PrepareObjectResultWithErrors(invalid, 400),
-                    _ => Results.Json(ex.Message, statusCode: 500)
+                    NotFoundException notFound => PrepareObjectResultWithErrors(notFound, 404),
+                    _ => PrepareObjectResultWithErrors(ex, 500)
                 };
             }            
         }
@@ -53,7 +55,12 @@ namespace House.Financial.PaymentReminder.Api
         {
             var baseResponse = new BaseResponse(new List<ErrorResponse> { new ErrorResponse { Message = ex.Message } }, statusCode);
 
-            return Results.BadRequest(baseResponse);
+            return statusCode switch
+            {
+                400 => Results.BadRequest(baseResponse),
+                404 => Results.NotFound(baseResponse),
+                _ => Results.Json(baseResponse, statusCode: statusCode)
+            };
         }
     }    
 }

@@ -1,6 +1,6 @@
 ﻿namespace House.Financial.PaymentReminder.Application.Commands.Put
 {
-    public class PutPaymentRemindersCommand : IRequest<Unit>
+    public class PutPaymentReminderCommand : IRequest<Unit>
     {
         public int Id { get; set; }
 
