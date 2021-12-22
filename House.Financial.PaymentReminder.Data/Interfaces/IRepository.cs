@@ -8,6 +8,6 @@
 
         Task<TEntity> GetById(int id);
 
-        Task UpdateAsync(TEntity entity);
+        Task UpdateAsync(TEntity entity, int id);
     }
 }

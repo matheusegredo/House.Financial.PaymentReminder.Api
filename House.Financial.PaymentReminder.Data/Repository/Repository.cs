@@ -21,10 +21,7 @@ namespace House.Financial.PaymentReminder.Data.Repository
         public async Task AddAsync(TEntity entity)
         {
             if (entity is null)
-                throw new ArgumentNullException(nameof(entity));
-
-            using var connection = new SqlConnection(_connection);
-            connection.Open();
+                throw new ArgumentNullException(nameof(entity));            
 
             var sqlBuilder = new StringBuilder();
 
@@ -40,6 +37,9 @@ namespace House.Financial.PaymentReminder.Data.Repository
 
             sqlBuilder.Remove(sqlBuilder.Length - 1, 1);
             sqlBuilder.Append(')');
+
+            using var connection = new SqlConnection(_connection);
+            connection.Open();
 
             await connection.ExecuteAsync(sqlBuilder.ToString(), entity);
         }
@@ -57,12 +57,36 @@ namespace House.Financial.PaymentReminder.Data.Repository
             using var connection = new SqlConnection(_connection);
             connection.Open();
 
-            return await connection.QueryFirstAsync<TEntity>($"SELECT TOP 1 * FROM {TableName} WHERE {Identifier} = @id", new { id });
+            var result = await connection.QueryAsync<TEntity>($"SELECT TOP 1 * FROM {TableName} WHERE {Identifier} = @id", new { id });
+
+            return result.FirstOrDefault();
         }
 
-        public Task UpdateAsync(TEntity entity)
+        public async Task UpdateAsync(TEntity entity, int id)
         {
-            throw new NotImplementedException();
+            if (entity is null)
+                throw new ArgumentNullException(nameof(entity));
+
+            var sqlBuilder = new StringBuilder();
+
+            sqlBuilder.Append($"UPDATE {TableName} SET ");
+
+            foreach (var property in entity.GetType().GetProperties())
+            {
+                if (Equals(property.Name, Identifier))
+                    continue;
+
+                sqlBuilder.Append($" {property.Name} = @{property.Name},");
+            }
+
+            sqlBuilder.Remove(sqlBuilder.Length - 1, 1);
+
+            sqlBuilder.Append($" WHERE {Identifier} = @{Identifier}");
+
+            using var connection = new SqlConnection(_connection);
+            connection.Open();
+
+            await connection.ExecuteAsync(sqlBuilder.ToString(), entity);
         }
     }
 }
