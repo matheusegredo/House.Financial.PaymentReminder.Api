@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
+    <PackageReference Include="Moq.AutoMock" Version="3.2.0-ci0207" />
     <PackageReference Include="NUnit" Version="3.13.2" />
     <PackageReference Include="NUnit3TestAdapter" Version="4.0.0" />
     <PackageReference Include="coverlet.collector" Version="3.1.0" />
@@ -20,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Command\" />
+    <ProjectReference Include="..\House.Financial.PaymentReminder.Application\House.Financial.PaymentReminder.Application.csproj" />
   </ItemGroup>
 
 </Project>

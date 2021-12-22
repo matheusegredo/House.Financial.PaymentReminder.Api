@@ -5,9 +5,9 @@ using House.Financial.PaymentReminder.Data;
 
 namespace House.Financial.PaymentReminder.Application.Profiles
 {
-    public class PaymentProfile : Profile
+    public class PaymentCommandProfile : Profile
     {
-        public PaymentProfile()
+        public PaymentCommandProfile()
         {
             CreateMap<PostPaymentReminderCommand, Payment>();
 
