@@ -2,6 +2,7 @@
 using House.Financial.PaymentReminder.Application.Commands;
 using House.Financial.PaymentReminder.Application.Commands.Put;
 using House.Financial.PaymentReminder.Application.Queries;
+using House.Financial.PaymentReminder.Application.Queries.Get;
 using MediatR;
 
 namespace House.Financial.PaymentReminder.Api.Controllers

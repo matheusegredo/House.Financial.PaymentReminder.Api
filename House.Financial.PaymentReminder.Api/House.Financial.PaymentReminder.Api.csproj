@@ -11,6 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\House.Financial.PaymentReminder.Application\House.Financial.PaymentReminder.Application.csproj" />
     <ProjectReference Include="..\House.Financial.PaymentReminder.Data\House.Financial.PaymentReminder.Data.csproj" />
     <ProjectReference Include="..\House.Financial.PaymentReminder.Exceptions\House.Financial.PaymentReminder.Exceptions.csproj" />

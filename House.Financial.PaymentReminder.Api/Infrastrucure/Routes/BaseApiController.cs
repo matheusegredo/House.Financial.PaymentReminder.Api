@@ -11,7 +11,7 @@ namespace House.Financial.PaymentReminder.Api.Infrastrucure.Routes
             {
                 var response = await func();
 
-                return Results.Ok(response);
+                return Results.Ok(new BaseApiResponse(response));
             }
             catch (Exception ex)
             {
