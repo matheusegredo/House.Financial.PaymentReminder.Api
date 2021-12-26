@@ -1,10 +1,11 @@
-﻿using House.Financial.PaymentReminder.Data;
+﻿using House.Financial.PaymentReminder.Application.Commands.Payments.Put;
+using House.Financial.PaymentReminder.Data;
 using House.Financial.PaymentReminder.Data.Interfaces;
 using House.Financial.PaymentReminder.Exceptions;
 
 namespace House.Financial.PaymentReminder.Application.Commands.Put
 {
-    public class PutPaymentReminderCommandHandler : IRequestHandler<PutPaymentReminderCommand, Unit>
+    public class PutPaymentReminderCommandHandler : IRequestHandler<PutPaymentReminderCommand, PutPaymentReminderCommandResponse>
     {
         private readonly IMapper _mapper;
         private readonly IPaymentRepository _paymentRepository;
@@ -15,7 +16,7 @@ namespace House.Financial.PaymentReminder.Application.Commands.Put
             _paymentRepository = paymentRepository;
         }
 
-        public async Task<Unit> Handle(PutPaymentReminderCommand command, CancellationToken cancellationToken)
+        public async Task<PutPaymentReminderCommandResponse> Handle(PutPaymentReminderCommand command, CancellationToken cancellationToken)
         {
             var payment = await _paymentRepository.GetById(command.Id);
 
@@ -24,7 +25,7 @@ namespace House.Financial.PaymentReminder.Application.Commands.Put
 
             await _paymentRepository.UpdateAsync(payment, command.Id);
 
-            return Unit.Value;
+            return new PutPaymentReminderCommandResponse("Payment reminder updated successfuly.");
         }
     }
 }

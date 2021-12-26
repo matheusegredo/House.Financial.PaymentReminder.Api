@@ -1,12 +1,9 @@
-﻿namespace House.Financial.PaymentReminder.Application.Commands.Post
+﻿namespace House.Financial.PaymentReminder.Application.Commands.Payments.Post
 {
-    public class PostPaymentReminderCommandResponse
+    public class PostPaymentReminderCommandResponse : BaseCommandResponse
     {
-        public PostPaymentReminderCommandResponse(string message)
+        public PostPaymentReminderCommandResponse(string message) : base(message)
         {
-            Message = message;
         }
-
-        public string Message { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿using House.Financial.PaymentReminder.Application.Commands.Post;
+﻿using House.Financial.PaymentReminder.Application.Commands.Payments.Post;
 
 namespace House.Financial.PaymentReminder.Application.Commands
 {

@@ -1,5 +1,4 @@
 ﻿using FluentValidation;
-using House.Financial.PaymentReminder.Application;
 using House.Financial.PaymentReminder.Exceptions;
 
 namespace House.Financial.PaymentReminder.Api.Infrastrucure.Routes
@@ -28,7 +27,7 @@ namespace House.Financial.PaymentReminder.Api.Infrastrucure.Routes
 
         private static IResult PrepareObjectResultWithErrors(Exception ex, int statusCode)
         {
-            var baseResponse = new BaseResponse(new List<ErrorResponse> { new ErrorResponse { Message = ex.Message } }, statusCode);
+            var baseResponse = new BaseApiResponse(new List<ErrorResponse> { new ErrorResponse { Message = ex.Message } }, statusCode);
 
             return statusCode switch
             {
@@ -42,7 +41,7 @@ namespace House.Financial.PaymentReminder.Api.Infrastrucure.Routes
         {
             var errorResponse = ex.Errors.Select(p => new ErrorResponse { Message = p.ErrorMessage, Property = p.PropertyName }).ToList();
 
-            return Results.BadRequest(new BaseResponse(errorResponse, 400));
+            return Results.BadRequest(new BaseApiResponse(errorResponse, 400));
         }
     }
 }

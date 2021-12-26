@@ -1,13 +1,12 @@
 ﻿using AutoMapper;
 using House.Financial.PaymentReminder.Application.Commands;
+using House.Financial.PaymentReminder.Application.Commands.Payments.Post;
 using House.Financial.PaymentReminder.Application.Profiles;
-using House.Financial.PaymentReminder.Data.Interfaces;
-using MediatR;
-using Moq;
+using House.Financial.PaymentReminder.Application.Test.Repositories;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace House.Financial.PaymentReminder.Application.Test.Command
+namespace House.Financial.PaymentReminder.Application.Test.Command.Payments
 {
     [Trait("Payment", "Post")]
     public class PostPaymentReminderCommandTest
@@ -16,18 +15,18 @@ namespace House.Financial.PaymentReminder.Application.Test.Command
 
         public PostPaymentReminderCommandTest()
         {
-            var repository = new Mock<IPaymentRepository>().Object;
+            var repository = new MockPaymentRepository().Mock();
             var mapper = new MapperConfiguration(cfg => cfg.AddProfile(new PaymentCommandProfile())).CreateMapper();
 
             _handler = new PostPaymentReminderCommandHandler(mapper, repository);
         }
 
-        [Fact(DisplayName = "Handler should return unit")]
-        public async Task PostCompleted_ShouldReturnUnit() 
+        [Fact(DisplayName = "Handler should return PostPaymentReminderCommandResponse")]
+        public async Task PostCompleted_ShouldReturnPostPaymentReminderCommandResponse()
         {
             var command = new PostPaymentReminderCommand();
 
-            Assert.IsAssignableFrom<Unit>(await _handler.Handle(command, default));
+            Assert.IsAssignableFrom<PostPaymentReminderCommandResponse>(await _handler.Handle(command, default));
         }
     }
 }

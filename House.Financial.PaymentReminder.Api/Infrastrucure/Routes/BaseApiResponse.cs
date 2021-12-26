@@ -1,14 +1,14 @@
-﻿namespace House.Financial.PaymentReminder.Application
+﻿namespace House.Financial.PaymentReminder.Api.Infrastrucure.Routes
 {
-    public class BaseResponse
+    public class BaseApiResponse
     {
-        public BaseResponse(object data, int statusCode = 200)
+        public BaseApiResponse(object data, int statusCode = 200)
         {
             Data = data;
             StatusCode = statusCode;
         }
 
-        public BaseResponse(List<ErrorResponse> errors, int statusCode = 500)
+        public BaseApiResponse(List<ErrorResponse> errors, int statusCode = 500)
         {
             Errors = errors;
             StatusCode = statusCode;
@@ -21,7 +21,7 @@
         public List<ErrorResponse> Errors { get; set; }
     }
 
-    public class ErrorResponse 
+    public class ErrorResponse
     {
         public string Message { get; set; }
 

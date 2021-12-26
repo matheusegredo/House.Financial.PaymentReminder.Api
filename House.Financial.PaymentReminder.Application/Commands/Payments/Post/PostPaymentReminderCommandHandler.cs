@@ -1,4 +1,4 @@
-﻿using House.Financial.PaymentReminder.Application.Commands.Post;
+﻿using House.Financial.PaymentReminder.Application.Commands.Payments.Post;
 using House.Financial.PaymentReminder.Data;
 using House.Financial.PaymentReminder.Data.Interfaces;
 
@@ -18,7 +18,7 @@ namespace House.Financial.PaymentReminder.Application.Commands
         public async Task<PostPaymentReminderCommandResponse> Handle(PostPaymentReminderCommand command, CancellationToken cancellationToken)
         {
             await _paymentRepository.AddAsync(_mapper.Map<Payment>(command));
-            return new PostPaymentReminderCommandResponse("Payment inserted successfully");
+            return new PostPaymentReminderCommandResponse("Payment reminder inserted successfully");
         }        
     }
 }
