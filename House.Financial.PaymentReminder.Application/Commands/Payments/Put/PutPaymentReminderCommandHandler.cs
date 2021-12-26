@@ -4,12 +4,12 @@ using House.Financial.PaymentReminder.Exceptions;
 
 namespace House.Financial.PaymentReminder.Application.Commands.Put
 {
-    public class PutPaymentRemindersCommandHandler : IRequestHandler<PutPaymentReminderCommand, Unit>
+    public class PutPaymentReminderCommandHandler : IRequestHandler<PutPaymentReminderCommand, Unit>
     {
         private readonly IMapper _mapper;
         private readonly IPaymentRepository _paymentRepository;
 
-        public PutPaymentRemindersCommandHandler(IMapper mapper, IPaymentRepository paymentRepository)
+        public PutPaymentReminderCommandHandler(IMapper mapper, IPaymentRepository paymentRepository)
         {
             _mapper = mapper;
             _paymentRepository = paymentRepository;
