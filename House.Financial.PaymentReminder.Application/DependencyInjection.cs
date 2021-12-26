@@ -2,7 +2,7 @@
 using House.Financial.PaymentReminder.Application.Commands;
 using House.Financial.PaymentReminder.Application.Commands.Post;
 using House.Financial.PaymentReminder.Application.Pipelines;
-using House.Financial.PaymentReminder.Application.Profiles;
+using House.Financial.PaymentReminder.Application.Profiles.Query;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace House.Financial.PaymentReminder.Application

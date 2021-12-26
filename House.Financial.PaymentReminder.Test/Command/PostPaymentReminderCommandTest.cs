@@ -6,7 +6,7 @@ using House.Financial.PaymentReminder.Application.Test.Repositories;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace House.Financial.PaymentReminder.Application.Test.Command.Payments
+namespace House.Financial.PaymentReminder.Application.Test.Command
 {
     [Trait("Payment", "Post")]
     public class PostPaymentReminderCommandTest

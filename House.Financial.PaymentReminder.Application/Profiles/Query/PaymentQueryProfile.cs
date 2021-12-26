@@ -1,8 +1,7 @@
-﻿using AutoMapper;
-using House.Financial.PaymentReminder.Application.Queries;
-using House.Financial.PaymentReminder.Data;
+﻿using House.Financial.PaymentReminder.Application.Queries.Get;
+using House.Financial.PaymentReminder.Data.Entities;
 
-namespace House.Financial.PaymentReminder.Application.Profiles
+namespace House.Financial.PaymentReminder.Application.Profiles.Query
 {
     public class PaymentQueryProfile : Profile
     {

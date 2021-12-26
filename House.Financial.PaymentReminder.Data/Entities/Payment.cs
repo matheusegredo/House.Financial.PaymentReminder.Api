@@ -1,4 +1,4 @@
-﻿namespace House.Financial.PaymentReminder.Data
+﻿namespace House.Financial.PaymentReminder.Data.Entities
 {
     public class Payment
     {

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using House.Financial.PaymentReminder.Application.Commands;
 using House.Financial.PaymentReminder.Application.Profiles;
 using House.Financial.PaymentReminder.Application.Queries;
+using House.Financial.PaymentReminder.Application.Queries.Get;
 using House.Financial.PaymentReminder.Application.Test.Repositories;
 using System.Threading.Tasks;
 using Xunit;

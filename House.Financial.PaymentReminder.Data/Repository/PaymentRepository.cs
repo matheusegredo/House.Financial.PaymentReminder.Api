@@ -1,4 +1,5 @@
 ﻿#pragma warning disable CS8603 // Possível retorno de referência nula.
+using House.Financial.PaymentReminder.Data.Entities;
 using House.Financial.PaymentReminder.Data.Interfaces;
 
 namespace House.Financial.PaymentReminder.Data.Repository

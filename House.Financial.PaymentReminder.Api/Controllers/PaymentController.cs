@@ -4,7 +4,7 @@ using House.Financial.PaymentReminder.Application.Commands.Put;
 using House.Financial.PaymentReminder.Application.Queries;
 using MediatR;
 
-namespace House.Financial.PaymentReminder.Api
+namespace House.Financial.PaymentReminder.Api.Controllers
 {
     public class PaymentController : BaseApiController
     {
@@ -29,5 +29,5 @@ namespace House.Financial.PaymentReminder.Api
             _app.MapPut("/", async (HttpContext context, PutPaymentReminderCommand command, IMediator mediator)
                 => await ResponseHandler(context, () => mediator.Send(command)));
         }
-    }    
+    }
 }

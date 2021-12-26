@@ -1,8 +1,7 @@
-﻿using House.Financial.PaymentReminder.Application.Commands.Payments.Post;
-using House.Financial.PaymentReminder.Data;
+﻿using House.Financial.PaymentReminder.Data.Entities;
 using House.Financial.PaymentReminder.Data.Interfaces;
 
-namespace House.Financial.PaymentReminder.Application.Commands
+namespace House.Financial.PaymentReminder.Application.Commands.Payments.Post
 {
     public class PostPaymentReminderCommandHandler : IRequestHandler<PostPaymentReminderCommand, PostPaymentReminderCommandResponse>
     {
@@ -19,6 +18,6 @@ namespace House.Financial.PaymentReminder.Application.Commands
         {
             await _paymentRepository.AddAsync(_mapper.Map<Payment>(command));
             return new PostPaymentReminderCommandResponse("Payment reminder inserted successfully");
-        }        
+        }
     }
 }

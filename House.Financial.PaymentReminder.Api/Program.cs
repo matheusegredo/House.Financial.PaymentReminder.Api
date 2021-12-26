@@ -1,5 +1,6 @@
 using House.Financial.PaymentReminder.Api;
 using House.Financial.PaymentReminder.Application;
+using House.Financial.PaymentReminder.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

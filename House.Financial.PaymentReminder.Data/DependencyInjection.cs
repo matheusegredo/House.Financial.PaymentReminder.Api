@@ -2,7 +2,7 @@
 using House.Financial.PaymentReminder.Data.Repository;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace House.Financial.PaymentReminder.Application
+namespace House.Financial.PaymentReminder.Data
 {
     public static class DependencyInjection
     {

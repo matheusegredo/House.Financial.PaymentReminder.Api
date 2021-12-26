@@ -7,7 +7,7 @@ using House.Financial.PaymentReminder.Exceptions;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace House.Financial.PaymentReminder.Application.Test.Command.Payments
+namespace House.Financial.PaymentReminder.Application.Test.Command
 {
     [Trait("Payment", "Put")]
     public class PutPaymentReminderCommandTest

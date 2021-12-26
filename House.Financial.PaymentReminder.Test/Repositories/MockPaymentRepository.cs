@@ -1,4 +1,4 @@
-﻿using House.Financial.PaymentReminder.Data;
+﻿using House.Financial.PaymentReminder.Data.Entities;
 using House.Financial.PaymentReminder.Data.Interfaces;
 using Moq;
 using System;

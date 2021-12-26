@@ -1,8 +1,6 @@
-﻿using AutoMapper;
-using House.Financial.PaymentReminder.Application.Queries;
-using House.Financial.PaymentReminder.Data.Interfaces;
+﻿using House.Financial.PaymentReminder.Data.Interfaces;
 
-namespace House.Financial.PaymentReminder.Application.Commands
+namespace House.Financial.PaymentReminder.Application.Queries.Get
 {
     public class GetPaymentReminderQueryHandler : IRequestHandler<GetPaymentReminderQuery, List<GetPaymentsReminderQueryResponse>>
     {
